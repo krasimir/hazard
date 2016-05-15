@@ -2,9 +2,10 @@
   "name": "hazard",
   "version": "0.1.0",
   "description": "Producing UI with CSS in JavaScript",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    
+    "test": "mocha --colors ./test/*.spec.js",
+    "test-watch": "mocha -w --colors ./test/*.spec.js"
   },
   "repository": {
     "type": "git",
@@ -23,5 +24,10 @@
   "bugs": {
     "url": "https://github.com/krasimir/hazard/issues"
   },
-  "homepage": "https://github.com/krasimir/hazard#readme"
+  "homepage": "https://github.com/krasimir/hazard#readme",
+  "devDependencies": {
+    "chai": "3.5.0",
+    "cssx-transpiler": "5.2.0",
+    "mocha": "2.4.5"
+  }
 }
