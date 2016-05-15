@@ -1,0 +1,27 @@
+{
+  "name": "hazard",
+  "version": "0.1.0",
+  "description": "Producing UI with CSS in JavaScript",
+  "main": "index.js",
+  "scripts": {
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krasimir/hazard.git"
+  },
+  "keywords": [
+    "css",
+    "cssx",
+    "javascript",
+    "ui",
+    "hybrid",
+    "experiment"
+  ],
+  "author": "Krasimir Tsonev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/krasimir/hazard/issues"
+  },
+  "homepage": "https://github.com/krasimir/hazard#readme"
+}
