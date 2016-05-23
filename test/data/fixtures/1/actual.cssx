@@ -1,0 +1,11 @@
+header {
+  margin: 10px;
+  nav {
+    a {
+      font-size: 20px;
+    }
+    a {
+      margin-left: 1em;
+    }
+  }
+}

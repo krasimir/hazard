@@ -1,22 +1,14 @@
-var cssx = require('cssx');
+var toHTML = require('./toHTML');
+var toCSS = require('./toCSS');
 
 module.exports = function (json) {
   var api = {};
+  var css = toCSS(json);
+  var html = toHTML(json, css);
 
-  api.getJSON = function () {
-    return json;
-  };
-  api.getCSS = function () {
-    var func, sheet;
-
-    cssx.clear();
-    cssx.domChanges(false);
-    cssx.minify(true);
-
-    sheet = cssx();
-    sheet.add(api.getJSON());
-    return sheet.compileImmediate().getCSS();
-  };
+  api.json = json;
+  api.css = css;
+  api.html = html;
 
   return api;
 }
