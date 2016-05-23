@@ -1,8 +1,8 @@
 {
   "name": "hazard",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Producing UI with CSS in JavaScript",
-  "main": "lib/index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "mocha --colors ./test/*.spec.js",
     "test-watch": "mocha -w --colors ./test/*.spec.js --watch-extensions css,cssx,html"

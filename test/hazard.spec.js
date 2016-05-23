@@ -7,7 +7,7 @@ var path = require('path');
 var expect = chai.expect;
 var cssx = fs.readFileSync(__dirname + '/data/sample.cssx').toString();
 var fixturesDir = __dirname + '/data/fixtures/';
-// var only = '1';
+var only = '2';
 
 function getDirectories(srcpath) {
   return fs.readdirSync(srcpath).filter(function(file) {

@@ -1,0 +1,6 @@
+header {
+  margin: 10px;
+}
+section {
+  font-size: 20px;
+}
