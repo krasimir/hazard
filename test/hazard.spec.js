@@ -7,7 +7,7 @@ var path = require('path');
 var expect = chai.expect;
 var cssx = fs.readFileSync(__dirname + '/data/sample.cssx').toString();
 var fixturesDir = __dirname + '/data/fixtures/';
-var only = '2';
+// var only = '1';
 
 function getDirectories(srcpath) {
   return fs.readdirSync(srcpath).filter(function(file) {
@@ -48,7 +48,7 @@ describe('Given the Hazard library', function () {
     });
 
     it('should produce html', function () {
-      var expected = '<header class="hd1"><ul class="hd2"><li class="hd3"></li><a class="hd4"></a></ul></header>';
+      var expected = '<header class="hd1"><ul class="hd2"><li class="hd3"></li><a href="" class="hd4"></a></ul></header>';
 
       expect(result.html.text).to.equal(expected);
     });
@@ -56,22 +56,31 @@ describe('Given the Hazard library', function () {
   });
   
   (typeof only !== 'undefined' ? describe.only : describe)('when reading fixtures', function () {
-    getDirectories(fixturesDir).forEach(function (folder) {
+    getDirectories(fixturesDir).filter(function (folder) {
+      if (typeof only === 'undefined') return true;
+      return folder.toString() === only.toString();
+    }).forEach(function (folder) {
       var actualCSSX = fs.readFileSync(fixturesDir + folder + '/actual.cssx').toString();
       var expectedCSS = fs.readFileSync(fixturesDir + folder + '/expected.css').toString();
-      var expectedHTML = fs.readFileSync(fixturesDir + folder + '/expected.html').toString();
+      var expectedHTML = fs.readFileSync(fixturesDir + folder + '/expected.html').toString();      
       describe('and when testing case ' + folder, function () {
         var result;
         var jsonResultFile = fixturesDir + folder + '/result.json';
+        var htmlResultFile = fixturesDir + folder + '/result.html';
+        var cssResultFile = fixturesDir + folder + '/result.css';
 
         before(function () {
           result = Hazard().fromCSSX(actualCSSX);
           fs.writeFileSync(jsonResultFile, JSON.stringify(result.json, null, 2));
+          fs.writeFileSync(htmlResultFile, result.html.text);
+          fs.writeFileSync(cssResultFile, result.css.text);
         });
         it('should produce expected css and html', function () {
           expect(result.html.text).to.be.equal(expectedHTML);
           expect(result.css.text).to.be.equal(expectedCSS);
           fs.unlink(jsonResultFile);
+          fs.unlink(htmlResultFile);
+          fs.unlink(cssResultFile);
         });
       });
     });

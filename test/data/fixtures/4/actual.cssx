@@ -1,0 +1,12 @@
+dl[title="Some title here"].item-list {
+  font-size: 30px;
+  dt {
+    margin-left: 10px;
+    h2.inner-title {
+      font-size: 20px;
+    }
+    p#paragraph {
+      color: green;
+    }
+  }
+}
