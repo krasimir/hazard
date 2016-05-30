@@ -11,7 +11,7 @@ Producing UI with CSS in JavaScript! The next because-we-can thing :japanese_ogr
 ```js
 var hazard = require('hazard')();
 var result = hazard.fromJSON({
-  header: {
+  header[title="My Title"]: {
     padding: '10px'
   }
 });
@@ -23,6 +23,6 @@ console.log(result.css.text);
 
 console.log(result.html.text);
 /*
-<header class="hd1"></header>
+<header class="hd1" title="My Title"></header>
 */
 ```
